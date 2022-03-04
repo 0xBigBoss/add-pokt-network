@@ -31,10 +31,10 @@
 	}
 </script>
 
-<section class="min-h-screen flex flex-col items-center justify-center">
+<section class="min-h-screen flex flex-col items-center justify-center text-xl p-4">
 
 	{#if error}
-		<div class="m-10 p-5 max-w-xlg text-center bg-rose-700">
+		<div class="m-10 p-5 xlg:max-w-xlg max-w-full text-center bg-rose-700">
 			<h3 class="text-4xl">
 				Oh no! That's an error! 💥
 				<br />
@@ -52,8 +52,8 @@
 	<a
 		on:click={addPOKT}
 		href="#_"
-		class="px-24 py-8 relative rounded group font-medium text-white font-medium inline-block
-		text-4xl ">
+		class="lg:px-24 lg:py-8 px-5 py-4 relative rounded group font-medium text-white font-medium inline-block
+		sm:text-4xl ">
 		<span
 			class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br
 			from-purple-600 to-blue-500" />
@@ -67,6 +67,19 @@
 		<span
 			class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded
 			bg-gradient-to-br to-purple-600 from-blue-500" />
-		<h1 class="relative tracking-tight font-extrabold">Add POKT to Metamask</h1>
+		<h1 class="relative tracking-tight font-extrabold">Add POKT RPC Network (ETH) to Metamask</h1>
 	</a>
+
+	<div class="mt-10 text-xl">
+		<p>
+			More details here
+			<a
+
+				href="https://docs.pokt.network/home/resources/public-rpc-endpoints/ethereum-eth-metamask"
+				target="_blank"
+				class="underline">
+				"How to add the Ethereum (ETH) network in MetaMask with a Pocket-powered RPC Endpoint"
+			</a>
+		</p>
+	</div>
 </section>
