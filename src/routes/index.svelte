@@ -95,7 +95,7 @@
 			class="modal z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center p-8 lg:p-0">
 			<div class="modal-overlay fixed w-full h-full bg-gray-900 opacity-50" />
 			<div
-				class="bg-rose-700 w-full lg:h-max max-h-[100vh] lg:w-1/4 mx-auto rounded-lg shadow-xl z-50
+				class="bg-rose-700 w-full lg:h-max max-h-[100vh] lg:w-1/2 md:w-1/4 mx-auto rounded-lg shadow-xl z-50
 				overflow-y-auto">
 				<div class="head bg-rose-500 py-5 px-8 text-2xl font-extrabold">
 					<h3 class="text-4xl">Oh no! That's an error! 💥</h3>
