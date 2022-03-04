@@ -1,4 +1,17 @@
 <script>
+	let networkParams = {
+		chainId: '0x1', // A 0x-prefixed hexadecimal string
+		chainName: 'Ethereum Pocket Portal',
+		nativeCurrency: {
+			// name: string,
+			symbol: 'ETH', // 2-6 characters long
+			decimals: 18
+		},
+		rpcUrls: ['https://eth-rpc.gateway.pokt.network'],
+		blockExplorerUrls: ['https://etherscan.io']
+		// iconUrls?: string[], // Currently ignored.
+	};
+	let error = null;
 	async function addPOKT() {
 		if (typeof window.ethereum === 'undefined') {
 			console.log('MetaMask is installed!');
@@ -6,34 +19,35 @@
 			return;
 		}
 
-		console.log('helo');
-
-		window.request = await window.ethereum.request({
-			method: 'wallet_addEthereumChain',
-			params: [
-				{
-					chainId: '0x1', // A 0x-prefixed hexadecimal string
-					chainName: 'Ethereum Pocket Portal',
-					nativeCurrency: {
-						// name: string,
-						symbol: 'ETH', // 2-6 characters long
-						decimals: 18
-					},
-					rpcUrls: ['https://eth-rpc.gateway.pokt.network'],
-					blockExplorerUrls: ['https://etherscan.io']
-					// iconUrls?: string[], // Currently ignored.
-				}
-			]
-		});
+		try {
+			await window.ethereum.request({
+				method: 'wallet_addEthereumChain',
+				params: [networkParams]
+			});
+		} catch (e) {
+			console.dir(e);
+			error = e;
+		}
 	}
 </script>
 
-<style>
-	section {
-	}
-</style>
+<section class="min-h-screen flex flex-col items-center justify-center">
 
-<section class="min-h-screen flex items-center justify-center">
+	{#if error}
+		<div class="m-10 p-5 max-w-xlg text-center bg-rose-700">
+			<h3 class="text-4xl">
+				Oh no! That's an error! 💥
+				<br />
+				<span class="text-2xl">{error.message}</span>
+				<br />
+				<br />
+			</h3>
+			<p>Sorry you need to manually add POKT RPC endpoint. Tried the following network params:</p>
+			<div class="text-left">
+				<pre>{JSON.stringify(networkParams, null, 2)}</pre>
+			</div>
+		</div>
+	{/if}
 
 	<a
 		on:click={addPOKT}
