@@ -95,7 +95,7 @@
 			class="modal z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center p-8 lg:p-0">
 			<div class="modal-overlay fixed w-full h-full bg-gray-900 opacity-50" />
 			<div
-				class="bg-rose-700 w-full lg:h-max lg:w-1/4 mx-auto rounded-lg shadow-xl z-50
+				class="bg-rose-700 w-full lg:h-max max-h-[100vh] lg:w-1/4 mx-auto rounded-lg shadow-xl z-50
 				overflow-y-auto">
 				<div class="head bg-rose-500 py-5 px-8 text-2xl font-extrabold">
 					<h3 class="text-4xl">Oh no! That's an error! 💥</h3>
@@ -108,14 +108,21 @@
 						<br />
 
 						<p>
-							Sorry you need to manually add POKT RPC endpoint. Tried the following network params:
+							Sorry you need to manually add POKT RPC endpoint. More details here
+							<a
+								href="https://docs.pokt.network/home/resources/public-rpc-endpoints/ethereum-eth-metamask"
+								target="_blank"
+								class="underline">
+								"How to add the Ethereum (ETH) network in MetaMask with a Pocket-powered RPC
+								Endpoint"
+							</a>
 						</p>
-						<div class="text-left">
-							<pre>{JSON.stringify(networkParams, null, 2)}</pre>
-
-							<br>
+						<div class="pt-10 text-left">
 							<div class="max-w-full overflow-scroll">
-								<span>devs 👩🏻‍💻</span>
+								<span class="font-bold">for the devs 👩🏻‍💻<br></span>
+								Tried the following network params:
+								<pre>{JSON.stringify(networkParams, null, 2)}</pre>
+
 								<pre class="bg-slate-700 text-xs">{JSON.stringify(error, null, 2)}</pre>
 							</div>
 						</div>
