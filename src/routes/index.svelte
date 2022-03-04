@@ -32,32 +32,36 @@
 </script>
 
 <svelte:head>
-	<title>Pocket-powered RPC Endpoints | How to add the Ethereum (ETH) network in MetaMask with a Pocket-powered RPC Endpoint</title>
+	<title>
+		Pocket-powered RPC Endpoints | How to add the Ethereum (ETH) network in MetaMask with a
+		Pocket-powered RPC Endpoint
+	</title>
+	<link rel="icon" href="/favicon.png" id="__link-icon" />
 </svelte:head>
 
-<section class="min-h-screen flex flex-col items-center justify-center text-xl p-4">
+<section
+	class="bg-slate-800 text-white min-h-screen flex flex-col items-center justify-center text-xl p-4
+	pb-[25vh] xlg:max-w-xlg max-w-full">
 
-	{#if error}
-		<div class="m-10 p-5 xlg:max-w-xlg max-w-full text-center bg-rose-700">
-			<h3 class="text-4xl">
-				Oh no! That's an error! 💥
-				<br />
-				<span class="text-2xl">{error.message}</span>
-				<br />
-				<br />
-			</h3>
-			<p>Sorry you need to manually add POKT RPC endpoint. Tried the following network params:</p>
-			<div class="text-left">
-				<pre>{JSON.stringify(networkParams, null, 2)}</pre>
-			</div>
-		</div>
-	{/if}
+	<div class="text-4xl text-center max-w-full w-100 my-10">
+		<h1>
+			<img src="/pokt-logo.svg" alt="POKT" class="m-auto" width="300" />
+			<br />
+			<br />
+			Add POKT powered Ethereum network to metamask below.
+			<br />
+			Start by clicking the button below.
+			<br />
+			<br />
+			<span class="text-8xl">👇👇👇</span>
+		</h1>
+	</div>
 
 	<a
 		on:click={addPOKT}
 		href="#_"
-		class="lg:px-24 lg:py-8 px-5 py-4 relative rounded group font-medium text-white font-medium inline-block
-		sm:text-4xl ">
+		class="lg:px-24 lg:py-8 px-5 py-4 relative rounded group font-medium text-white font-medium
+		inline-block sm:text-4xl ">
 		<span
 			class="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br
 			from-purple-600 to-blue-500" />
@@ -78,7 +82,6 @@
 		<p>
 			More details here
 			<a
-
 				href="https://docs.pokt.network/home/resources/public-rpc-endpoints/ethereum-eth-metamask"
 				target="_blank"
 				class="underline">
@@ -86,4 +89,41 @@
 			</a>
 		</p>
 	</div>
+
+	{#if error}
+		<div
+			class="modal z-50 fixed w-full h-full top-0 left-0 flex items-center justify-center p-8 lg:p-0">
+			<div class="modal-overlay fixed w-full h-full bg-gray-900 opacity-50" />
+			<div
+				class="bg-rose-700 w-full lg:h-max lg:w-1/4 mx-auto rounded-lg shadow-xl z-50
+				overflow-y-auto">
+				<div class="head bg-rose-500 py-5 px-8 text-2xl font-extrabold">
+					<h3 class="text-4xl">Oh no! That's an error! 💥</h3>
+				</div>
+				<div class="content p-8">
+					<div class="">
+
+						<span class="text-2xl">Reason: {error.message}</span>
+						<br />
+						<br />
+
+						<p>
+							Sorry you need to manually add POKT RPC endpoint. Tried the following network params:
+						</p>
+						<div class="text-left">
+							<pre>{JSON.stringify(networkParams, null, 2)}</pre>
+
+							<br>
+							<div class="max-w-full overflow-scroll">
+								<span>devs 👩🏻‍💻</span>
+								<pre class="bg-slate-700 text-xs">{JSON.stringify(error, null, 2)}</pre>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	{/if}
+
 </section>
