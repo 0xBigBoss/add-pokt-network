@@ -31,6 +31,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Pocket-powered RPC Endpoints | How to add the Ethereum (ETH) network in MetaMask with a Pocket-powered RPC Endpoint</title>
+</svelte:head>
+
 <section class="min-h-screen flex flex-col items-center justify-center text-xl p-4">
 
 	{#if error}
